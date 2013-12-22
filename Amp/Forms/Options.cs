@@ -6,12 +6,12 @@ using System.Windows.Forms;
 namespace Amp
 {
 	public partial class Options : Form
-    {
+	{
 		public Options()
-        {
-            InitializeComponent();
+		{
+			InitializeComponent();
 			Shown += OnShow;
-        }
+		}
 
 		public void OnShow(object sender, EventArgs e)
 		{

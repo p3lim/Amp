@@ -7,6 +7,7 @@ namespace Amp
 {
 	public partial class Options : Form
 	{
+		private bool _frozen = false;
 		public Options()
 		{
 			InitializeComponent();
@@ -28,7 +29,9 @@ namespace Amp
 
 		private void OnShow(object sender, EventArgs e)
 		{
+			_frozen = true;
 			stateCheck.Checked = Properties.Settings.Default.StateSound;
+			_frozen = false;
 
 			Update();
 		}

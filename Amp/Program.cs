@@ -9,17 +9,24 @@ namespace Amp
 		[STAThread]
 		static void Main()
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+			bool created;
+			using (var muted = new System.Threading.Mutex(true, "Amp", out created))
+			{
+				if (created)
+				{
+					Application.EnableVisualStyles();
+					Application.SetCompatibleTextRenderingDefault(false);
 
-			trayIcon = new NotifyIcon();
-			InitializeTray();
+					trayIcon = new NotifyIcon();
+					InitializeTray();
 
-			hookCycle = new Hook();
-			hookMute = new Hook();
-			ApplyBindings();
+					hookCycle = new Hook();
+					hookMute = new Hook();
+					ApplyBindings();
 
-			Application.Run();
+					Application.Run();
+				}
+			}
 		}
 
 		#region tray

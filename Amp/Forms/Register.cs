@@ -35,7 +35,7 @@ namespace Amp
 
 		private void hookInput_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (!new[] { 8, 17, 18, 46 }.Contains(e.KeyValue))
+			if (!new[] { 8, 16, 17, 18, 27, 46 }.Contains(e.KeyValue))
 			{
 				key = 0;
 				mod = 0;

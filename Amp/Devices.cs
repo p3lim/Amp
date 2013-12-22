@@ -18,6 +18,7 @@ namespace Amp
 				if (device.ID != devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).ID)
 				{
 					policyConfig.SetDefaultEndpoint(device.ID, ERole.eMultimedia);
+					policyConfig.SetDefaultEndpoint(device.ID, ERole.eCommunications);
 					break;
 				}
 			}

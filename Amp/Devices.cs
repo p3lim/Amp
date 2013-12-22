@@ -27,14 +27,14 @@ namespace Amp
 
 		public static bool MuteMicrophone()
 		{
-			MMDevice microphone = devicesEnum.EnumerateAudioEndPoints(EDataFlow.eCapture, EDeviceState.DEVICE_STATE_ACTIVE)[0];
+			MMDevice microphone = devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eCapture, ERole.eCommunications);
 			microphone.AudioEndpointVolume.Mute = !microphone.AudioEndpointVolume.Mute;
 			return microphone.AudioEndpointVolume.Mute;
 		}
 
 		public static bool IsMuted()
 		{
-			return devicesEnum.EnumerateAudioEndPoints(EDataFlow.eCapture, EDeviceState.DEVICE_STATE_ACTIVE)[0].AudioEndpointVolume.Mute;
+			return devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eCapture, ERole.eCommunications).AudioEndpointVolume.Mute;
 		}
 	}
 }

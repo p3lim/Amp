@@ -33,7 +33,7 @@ namespace Amp
 			contextMenu.MenuItems.Add("-");
 			contextMenu.MenuItems.Add("Settings", contextMenu_Settings);
 			contextMenu.MenuItems.Add("-");
-			contextMenu.MenuItems.Add("Exit", (sender, e) => Application.Exit());
+			contextMenu.MenuItems.Add("Exit", contextMenu_Exit);
 
 			trayIcon.ContextMenu = contextMenu;
 			trayIcon.DoubleClick += (sender, e) => System.Diagnostics.Process.Start("sndvol.exe");
@@ -55,6 +55,12 @@ namespace Amp
 		{
 			var Options = new Amp.Options();
 			Options.Show();
+		}
+
+		private static void contextMenu_Exit(object sender, EventArgs e)
+		{
+			trayIcon.Dispose();
+			Application.Exit();
 		}
 		#endregion
 

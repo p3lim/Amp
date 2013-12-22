@@ -89,7 +89,7 @@ namespace Amp
 			Amp.Program.ApplyBindings();
 
 			Options options = Application.OpenForms["Options"] as Options;
-			options.OnShow(this, new EventArgs());
+			options.Update();
 
 			this.Close();
 		}
@@ -116,7 +116,7 @@ namespace Amp
 			Amp.Program.ApplyBindings();
 
 			Options options = Application.OpenForms["Options"] as Options;
-			options.OnShow(this, new EventArgs());
+			options.Update();
 
 			this.Close();
 		}

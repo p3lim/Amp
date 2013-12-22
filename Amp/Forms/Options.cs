@@ -7,14 +7,13 @@ namespace Amp
 {
 	public partial class Options : Form
 	{
-		private bool _frozen = false;
 		public Options()
 		{
 			InitializeComponent();
 			Shown += OnShow;
 		}
 
-		public void OnShow(object sender, EventArgs e)
+		public void Update()
 		{
 			if (!String.IsNullOrEmpty(Properties.Settings.Default.CycleKey))
 				cycleButton.Text = "Cycle Hotkey: " + Regex.Replace(Properties.Settings.Default.CycleMod, ", ", "+") + "+" + Properties.Settings.Default.CycleKey;
@@ -25,10 +24,13 @@ namespace Amp
 				muteButton.Text = "Mute Hotkey: " + Regex.Replace(Properties.Settings.Default.MuteMod, ", ", "+") + "+" + Properties.Settings.Default.MuteKey;
 			else
 				muteButton.Text = "Mute Hotkey: None";
+		}
 
-			_frozen = true;
+		private void OnShow(object sender, EventArgs e)
+		{
 			stateCheck.Checked = Properties.Settings.Default.StateSound;
-			_frozen = false;
+
+			Update();
 		}
 
 		private void cycleButton_Click(object sender, EventArgs e)

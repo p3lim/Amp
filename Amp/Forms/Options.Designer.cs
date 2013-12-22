@@ -32,6 +32,7 @@
 			this.cycleButton = new System.Windows.Forms.Button();
 			this.muteButton = new System.Windows.Forms.Button();
 			this.stateCheck = new System.Windows.Forms.CheckBox();
+			this.bootCheck = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// cycleButton
@@ -65,11 +66,23 @@
 			this.stateCheck.UseVisualStyleBackColor = true;
 			this.stateCheck.CheckedChanged += new System.EventHandler(this.stateCheck_CheckedChanged);
 			// 
+			// bootCheck
+			// 
+			this.bootCheck.AutoSize = true;
+			this.bootCheck.Location = new System.Drawing.Point(12, 113);
+			this.bootCheck.Name = "bootCheck";
+			this.bootCheck.Size = new System.Drawing.Size(117, 17);
+			this.bootCheck.TabIndex = 4;
+			this.bootCheck.Text = "Start with Windows";
+			this.bootCheck.UseVisualStyleBackColor = true;
+			this.bootCheck.CheckedChanged += new System.EventHandler(this.bootCheck_CheckedChanged);
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 115);
+			this.ClientSize = new System.Drawing.Size(284, 137);
+			this.Controls.Add(this.bootCheck);
 			this.Controls.Add(this.stateCheck);
 			this.Controls.Add(this.muteButton);
 			this.Controls.Add(this.cycleButton);
@@ -88,5 +101,6 @@
 		private System.Windows.Forms.Button cycleButton;
 		private System.Windows.Forms.Button muteButton;
 		private System.Windows.Forms.CheckBox stateCheck;
+		private System.Windows.Forms.CheckBox bootCheck;
     }
 }

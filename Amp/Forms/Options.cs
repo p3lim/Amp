@@ -1,4 +1,5 @@
 ﻿using CoreAudioApi;
+using Microsoft.Win32;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -30,7 +31,13 @@ namespace Amp
 		private void OnShow(object sender, EventArgs e)
 		{
 			_frozen = true;
+
 			stateCheck.Checked = Properties.Settings.Default.StateSound;
+
+			RegistryKey key = Registry.CurrentUser;
+			RegistryKey group = key.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+			bootCheck.Checked = group.GetValue("Amp") != null;
+
 			_frozen = false;
 
 			Update();
@@ -56,6 +63,20 @@ namespace Amp
 			{
 				Properties.Settings.Default.StateSound = !Properties.Settings.Default.StateSound;
 				Properties.Settings.Default.Save();
+			}
+		}
+
+		private void bootCheck_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!_frozen)
+			{
+				RegistryKey key = Registry.CurrentUser;
+				RegistryKey group = key.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+
+				if (bootCheck.Checked)
+					group.SetValue("Amp", Application.ExecutablePath, RegistryValueKind.String);
+				else if (group.GetValue("Amp") != null)
+					group.DeleteValue("Amp");
 			}
 		}
     }

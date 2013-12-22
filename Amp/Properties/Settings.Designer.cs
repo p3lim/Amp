@@ -70,5 +70,17 @@ namespace Amp.Properties {
                 this["MuteMod"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StateSound {
+            get {
+                return ((bool)(this["StateSound"]));
+            }
+            set {
+                this["StateSound"] = value;
+            }
+        }
     }
 }

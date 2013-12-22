@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
 			this.cycleButton = new System.Windows.Forms.Button();
 			this.muteButton = new System.Windows.Forms.Button();
+			this.stateCheck = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// cycleButton
@@ -53,11 +54,23 @@
 			this.muteButton.UseVisualStyleBackColor = true;
 			this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
 			// 
+			// stateCheck
+			// 
+			this.stateCheck.AutoSize = true;
+			this.stateCheck.Location = new System.Drawing.Point(12, 89);
+			this.stateCheck.Name = "stateCheck";
+			this.stateCheck.Size = new System.Drawing.Size(164, 17);
+			this.stateCheck.TabIndex = 3;
+			this.stateCheck.Text = "Play sound on changed state";
+			this.stateCheck.UseVisualStyleBackColor = true;
+			this.stateCheck.CheckedChanged += new System.EventHandler(this.stateCheck_CheckedChanged);
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 93);
+			this.ClientSize = new System.Drawing.Size(284, 115);
+			this.Controls.Add(this.stateCheck);
 			this.Controls.Add(this.muteButton);
 			this.Controls.Add(this.cycleButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -66,6 +79,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Amp";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -73,5 +87,6 @@
 
 		private System.Windows.Forms.Button cycleButton;
 		private System.Windows.Forms.Button muteButton;
+		private System.Windows.Forms.CheckBox stateCheck;
     }
 }

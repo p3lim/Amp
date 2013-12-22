@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace Amp
 {
-    static class Program
-    {
+	static class Program
+	{
 		[STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+		static void Main()
+		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
 
 			trayIcon = new NotifyIcon();
 			InitializeTray();
@@ -82,7 +82,7 @@ namespace Amp
 					hookCycle.Dispose();
 					hookCycle = new Hook();
 				}
-					
+
 				if (!String.IsNullOrEmpty(Properties.Settings.Default.MuteKey))
 				{
 					hookMute.Dispose();
@@ -111,6 +111,9 @@ namespace Amp
 		{
 			var device = Devices.CycleDevices();
 			trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
+
+			if (Properties.Settings.Default.StateSound)
+				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();
 		}
 
 		private static void hookMute_OnKeyPressed(object sender, EventArgs e)
@@ -118,10 +121,13 @@ namespace Amp
 			var muted = Devices.MuteMicrophone();
 			UpdateTray(muted);
 
-			if(muted)
+			if (muted)
 				trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now muted", ToolTipIcon.Info);
 			else
 				trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now active", ToolTipIcon.Info);
+
+			if (Properties.Settings.Default.StateSound)
+				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();
 		}
 		#endregion
 	}

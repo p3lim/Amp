@@ -7,6 +7,7 @@ namespace Amp
 {
 	public partial class Options : Form
 	{
+		private bool _frozen = false;
 		public Options()
 		{
 			InitializeComponent();
@@ -24,6 +25,10 @@ namespace Amp
 				muteButton.Text = "Mute Hotkey: " + Regex.Replace(Properties.Settings.Default.MuteMod, ", ", "+") + "+" + Properties.Settings.Default.MuteKey;
 			else
 				muteButton.Text = "Mute Hotkey: None";
+
+			_frozen = true;
+			stateCheck.Checked = Properties.Settings.Default.StateSound;
+			_frozen = false;
 		}
 
 		private void cycleButton_Click(object sender, EventArgs e)
@@ -38,6 +43,15 @@ namespace Amp
 			var Hook = new Amp.Register();
 			Register.type = "mute";
 			Hook.ShowDialog(this);
+		}
+
+		private void stateCheck_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!_frozen)
+			{
+				Properties.Settings.Default.StateSound = !Properties.Settings.Default.StateSound;
+				Properties.Settings.Default.Save();
+			}
 		}
     }
 }

@@ -79,5 +79,14 @@ namespace Amp.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Sound_Switch {
+            get {
+                return ResourceManager.GetStream("Sound_Switch", resourceCulture);
+            }
+        }
     }
 }

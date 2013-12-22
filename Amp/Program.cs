@@ -60,8 +60,14 @@ namespace Amp
 
 		private static void contextMenu_Settings(object sender, EventArgs e)
 		{
-			var Options = new Amp.Options();
-			Options.Show();
+			Options option = Application.OpenForms["Options"] as Options;
+			if (option != null)
+				option.BringToFront();
+			else
+			{
+				var Options = new Amp.Options();
+				Options.Show();
+			}
 		}
 
 		private static void contextMenu_Exit(object sender, EventArgs e)

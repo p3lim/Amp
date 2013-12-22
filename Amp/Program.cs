@@ -131,7 +131,7 @@ namespace Amp
 			var device = Devices.CycleDevices();
 			trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
 
-			if (Properties.Settings.Default.StateSound)
+			if (Properties.Settings.Default.CycleSound)
 				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();
 		}
 
@@ -145,7 +145,7 @@ namespace Amp
 			else
 				trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now active", ToolTipIcon.Info);
 
-			if (Properties.Settings.Default.StateSound)
+			if (Properties.Settings.Default.MuteSound)
 				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();
 		}
 		#endregion

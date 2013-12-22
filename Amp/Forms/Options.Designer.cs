@@ -31,15 +31,16 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
 			this.cycleButton = new System.Windows.Forms.Button();
 			this.muteButton = new System.Windows.Forms.Button();
-			this.stateCheck = new System.Windows.Forms.CheckBox();
 			this.bootCheck = new System.Windows.Forms.CheckBox();
+			this.muteNoteButton = new System.Windows.Forms.Button();
+			this.cycleNoteButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// cycleButton
 			// 
 			this.cycleButton.Location = new System.Drawing.Point(12, 12);
 			this.cycleButton.Name = "cycleButton";
-			this.cycleButton.Size = new System.Drawing.Size(260, 32);
+			this.cycleButton.Size = new System.Drawing.Size(222, 32);
 			this.cycleButton.TabIndex = 1;
 			this.cycleButton.Text = "cycleButton";
 			this.cycleButton.UseVisualStyleBackColor = true;
@@ -49,27 +50,16 @@
 			// 
 			this.muteButton.Location = new System.Drawing.Point(12, 50);
 			this.muteButton.Name = "muteButton";
-			this.muteButton.Size = new System.Drawing.Size(260, 32);
+			this.muteButton.Size = new System.Drawing.Size(222, 32);
 			this.muteButton.TabIndex = 2;
 			this.muteButton.Text = "muteButton";
 			this.muteButton.UseVisualStyleBackColor = true;
 			this.muteButton.Click += new System.EventHandler(this.muteButton_Click);
 			// 
-			// stateCheck
-			// 
-			this.stateCheck.AutoSize = true;
-			this.stateCheck.Location = new System.Drawing.Point(12, 89);
-			this.stateCheck.Name = "stateCheck";
-			this.stateCheck.Size = new System.Drawing.Size(164, 17);
-			this.stateCheck.TabIndex = 3;
-			this.stateCheck.Text = "Play sound on changed state";
-			this.stateCheck.UseVisualStyleBackColor = true;
-			this.stateCheck.CheckedChanged += new System.EventHandler(this.stateCheck_CheckedChanged);
-			// 
 			// bootCheck
 			// 
 			this.bootCheck.AutoSize = true;
-			this.bootCheck.Location = new System.Drawing.Point(12, 113);
+			this.bootCheck.Location = new System.Drawing.Point(13, 88);
 			this.bootCheck.Name = "bootCheck";
 			this.bootCheck.Size = new System.Drawing.Size(117, 17);
 			this.bootCheck.TabIndex = 4;
@@ -77,13 +67,32 @@
 			this.bootCheck.UseVisualStyleBackColor = true;
 			this.bootCheck.CheckedChanged += new System.EventHandler(this.bootCheck_CheckedChanged);
 			// 
+			// muteNoteButton
+			// 
+			this.muteNoteButton.Location = new System.Drawing.Point(240, 50);
+			this.muteNoteButton.Name = "muteNoteButton";
+			this.muteNoteButton.Size = new System.Drawing.Size(32, 32);
+			this.muteNoteButton.TabIndex = 5;
+			this.muteNoteButton.UseVisualStyleBackColor = true;
+			this.muteNoteButton.Click += new System.EventHandler(this.muteNoteButton_Click);
+			// 
+			// cycleNoteButton
+			// 
+			this.cycleNoteButton.Location = new System.Drawing.Point(240, 12);
+			this.cycleNoteButton.Name = "cycleNoteButton";
+			this.cycleNoteButton.Size = new System.Drawing.Size(32, 32);
+			this.cycleNoteButton.TabIndex = 6;
+			this.cycleNoteButton.UseVisualStyleBackColor = true;
+			this.cycleNoteButton.Click += new System.EventHandler(this.cycleNoteButton_Click);
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 137);
+			this.ClientSize = new System.Drawing.Size(284, 111);
+			this.Controls.Add(this.cycleNoteButton);
+			this.Controls.Add(this.muteNoteButton);
 			this.Controls.Add(this.bootCheck);
-			this.Controls.Add(this.stateCheck);
 			this.Controls.Add(this.muteButton);
 			this.Controls.Add(this.cycleButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -100,7 +109,8 @@
 
 		private System.Windows.Forms.Button cycleButton;
 		private System.Windows.Forms.Button muteButton;
-		private System.Windows.Forms.CheckBox stateCheck;
 		private System.Windows.Forms.CheckBox bootCheck;
+		private System.Windows.Forms.Button muteNoteButton;
+		private System.Windows.Forms.Button cycleNoteButton;
     }
 }

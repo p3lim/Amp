@@ -12,10 +12,17 @@ namespace Amp
 		public Options()
 		{
 			InitializeComponent();
+
+			ToolTip tipCycle = new ToolTip();
+			tipCycle.SetToolTip(this.cycleNoteButton, "Plays a sound when devices are cycled");
+
+			ToolTip tipMute = new ToolTip();
+			tipMute.SetToolTip(this.muteNoteButton, "Plays a sound when microphone mute is toggled");
+
 			Shown += OnShow;
 		}
 
-		public void Update()
+		public void UpdateDetails()
 		{
 			if (!String.IsNullOrEmpty(Properties.Settings.Default.CycleKey))
 				cycleButton.Text = "Cycle Hotkey: " + Regex.Replace(Properties.Settings.Default.CycleMod, ", ", "+") + "+" + Properties.Settings.Default.CycleKey;
@@ -26,21 +33,27 @@ namespace Amp
 				muteButton.Text = "Mute Hotkey: " + Regex.Replace(Properties.Settings.Default.MuteMod, ", ", "+") + "+" + Properties.Settings.Default.MuteKey;
 			else
 				muteButton.Text = "Mute Hotkey: None";
+
+			if (Properties.Settings.Default.CycleSound)
+				cycleNoteButton.BackgroundImage = Properties.Resources.Note;
+			else
+				cycleNoteButton.BackgroundImage = Properties.Resources.NoteDisabled;
+
+			if (Properties.Settings.Default.MuteSound)
+				muteNoteButton.BackgroundImage = Properties.Resources.Note;
+			else
+				muteNoteButton.BackgroundImage = Properties.Resources.NoteDisabled;
 		}
 
 		private void OnShow(object sender, EventArgs e)
 		{
 			_frozen = true;
-
-			stateCheck.Checked = Properties.Settings.Default.StateSound;
-
 			RegistryKey key = Registry.CurrentUser;
 			RegistryKey group = key.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
 			bootCheck.Checked = group.GetValue("Amp") != null;
-
 			_frozen = false;
 
-			Update();
+			UpdateDetails();
 		}
 
 		private void cycleButton_Click(object sender, EventArgs e)
@@ -57,15 +70,6 @@ namespace Amp
 			Hook.ShowDialog(this);
 		}
 
-		private void stateCheck_CheckedChanged(object sender, EventArgs e)
-		{
-			if (!_frozen)
-			{
-				Properties.Settings.Default.StateSound = !Properties.Settings.Default.StateSound;
-				Properties.Settings.Default.Save();
-			}
-		}
-
 		private void bootCheck_CheckedChanged(object sender, EventArgs e)
 		{
 			if (!_frozen)
@@ -78,6 +82,20 @@ namespace Amp
 				else if (group.GetValue("Amp") != null)
 					group.DeleteValue("Amp");
 			}
+		}
+
+		private void cycleNoteButton_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.CycleSound = !Properties.Settings.Default.CycleSound;
+			Properties.Settings.Default.Save();
+			UpdateDetails();
+		}
+
+		private void muteNoteButton_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.MuteSound = !Properties.Settings.Default.MuteSound;
+			Properties.Settings.Default.Save();
+			UpdateDetails();
 		}
     }
 }

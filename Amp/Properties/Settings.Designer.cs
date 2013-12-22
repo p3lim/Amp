@@ -49,6 +49,18 @@ namespace Amp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CycleSound {
+            get {
+                return ((bool)(this["CycleSound"]));
+            }
+            set {
+                this["CycleSound"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MuteKey {
             get {
@@ -74,12 +86,12 @@ namespace Amp.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StateSound {
+        public bool MuteSound {
             get {
-                return ((bool)(this["StateSound"]));
+                return ((bool)(this["MuteSound"]));
             }
             set {
-                this["StateSound"] = value;
+                this["MuteSound"] = value;
             }
         }
     }

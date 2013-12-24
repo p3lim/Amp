@@ -43,7 +43,7 @@ namespace Amp
 			contextMenu.MenuItems.Add("Exit", contextMenu_Exit);
 
 			trayIcon.ContextMenu = contextMenu;
-			trayIcon.DoubleClick += (sender, e) => System.Diagnostics.Process.Start("sndvol.exe");
+			trayIcon.Click += hookMute_OnKeyPressed; // TODO: Give the user the option what happens here
 			trayIcon.Text = "Amp";
 			trayIcon.Visible = true;
 

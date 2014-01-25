@@ -17,11 +17,7 @@ namespace Amp
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
 
-					trayIcon = new NotifyIcon();
 					InitializeTray();
-
-					hookCycle = new Hook();
-					hookMute = new Hook();
 					ApplyBindings();
 
 					Application.Run();
@@ -42,6 +38,7 @@ namespace Amp
 			contextMenu.MenuItems.Add("-");
 			contextMenu.MenuItems.Add("Exit", contextMenu_Exit);
 
+			trayIcon = new NotifyIcon();
 			trayIcon.ContextMenu = contextMenu;
 			trayIcon.Click += hookMute_OnKeyPressed; // TODO: Give the user the option what happens here
 			trayIcon.Text = "Amp";
@@ -85,38 +82,31 @@ namespace Amp
 		{
 			try
 			{
+				if (hookCycle != null)
+					hookCycle.Dispose();
+
+				if (hookMute != null)
+					hookMute.Dispose();
+
+				hookCycle = new Hook();
+				hookMute = new Hook();
+
 				if (!String.IsNullOrEmpty(Properties.Settings.Default.CycleKey))
 				{
-					hookCycle.Dispose();
-					hookCycle = new Hook();
-
 					Keys key = (Keys)Enum.Parse(typeof(Keys), Properties.Settings.Default.CycleKey);
 					Modifiers mod = (Modifiers)Enum.Parse(typeof(Modifiers), Properties.Settings.Default.CycleMod);
 
 					hookCycle.Register(mod, key);
 					hookCycle.OnKeyPressed += hookCycle_OnKeyPressed;
 				}
-				else
-				{
-					hookCycle.Dispose();
-					hookCycle = new Hook();
-				}
 
 				if (!String.IsNullOrEmpty(Properties.Settings.Default.MuteKey))
 				{
-					hookMute.Dispose();
-					hookMute = new Hook();
-
 					Keys key = (Keys)Enum.Parse(typeof(Keys), Properties.Settings.Default.MuteKey);
 					Modifiers mod = (Modifiers)Enum.Parse(typeof(Modifiers), Properties.Settings.Default.MuteMod);
 
 					hookMute.Register(mod, key);
 					hookMute.OnKeyPressed += hookMute_OnKeyPressed;
-				}
-				else
-				{
-					hookMute.Dispose();
-					hookMute = new Hook();
 				}
 			}
 			catch (Exception e)

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Amp
 {
-	public sealed class Hook : IDisposable
+	public class Hook : IDisposable
 	{
 		[DllImport("user32.dll")]
 		private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);

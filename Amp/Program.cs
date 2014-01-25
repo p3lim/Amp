@@ -130,7 +130,7 @@ namespace Amp
 		{
 			var device = Devices.CycleDevices();
 
-			if(Properties.Settings.Default.TrayNotifications)
+			if (Properties.Settings.Default.TrayNotifications)
 				trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
 
 			if (Properties.Settings.Default.CycleSound)

@@ -40,7 +40,7 @@ namespace Amp
 
 			trayIcon = new NotifyIcon();
 			trayIcon.ContextMenu = contextMenu;
-			trayIcon.Click += hookMute_OnKeyPressed; // TODO: Give the user the option what happens here
+			trayIcon.DoubleClick += hookMute_OnKeyPressed; // TODO: Give the user the option what happens here
 			trayIcon.Text = "Amp";
 			trayIcon.Visible = true;
 

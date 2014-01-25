@@ -94,5 +94,17 @@ namespace Amp.Properties {
                 this["MuteSound"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TrayNotifications {
+            get {
+                return ((bool)(this["TrayNotifications"]));
+            }
+            set {
+                this["TrayNotifications"] = value;
+            }
+        }
     }
 }

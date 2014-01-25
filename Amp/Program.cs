@@ -129,7 +129,9 @@ namespace Amp
 		private static void hookCycle_OnKeyPressed(object sender, EventArgs e)
 		{
 			var device = Devices.CycleDevices();
-			trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
+
+			if(Properties.Settings.Default.TrayNotifications)
+				trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
 
 			if (Properties.Settings.Default.CycleSound)
 				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();
@@ -140,10 +142,13 @@ namespace Amp
 			var muted = Devices.MuteMicrophone();
 			UpdateTray(muted);
 
-			if (muted)
-				trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now muted", ToolTipIcon.Info);
-			else
-				trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now active", ToolTipIcon.Info);
+			if (Properties.Settings.Default.TrayNotifications)
+			{
+				if (muted)
+					trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now muted", ToolTipIcon.Info);
+				else
+					trayIcon.ShowBalloonTip(500, "Amp", "Microphone is now active", ToolTipIcon.Info);
+			}
 
 			if (Properties.Settings.Default.MuteSound)
 				new System.Media.SoundPlayer(Properties.Resources.Sound_Switch).Play();

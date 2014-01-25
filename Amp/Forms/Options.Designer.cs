@@ -34,6 +34,7 @@
 			this.bootCheck = new System.Windows.Forms.CheckBox();
 			this.muteNoteButton = new System.Windows.Forms.Button();
 			this.cycleNoteButton = new System.Windows.Forms.Button();
+			this.balloonCheck = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// cycleButton
@@ -85,11 +86,23 @@
 			this.cycleNoteButton.UseVisualStyleBackColor = true;
 			this.cycleNoteButton.Click += new System.EventHandler(this.cycleNoteButton_Click);
 			// 
+			// balloonCheck
+			// 
+			this.balloonCheck.AutoSize = true;
+			this.balloonCheck.Location = new System.Drawing.Point(13, 111);
+			this.balloonCheck.Name = "balloonCheck";
+			this.balloonCheck.Size = new System.Drawing.Size(132, 17);
+			this.balloonCheck.TabIndex = 7;
+			this.balloonCheck.Text = "Show tray notifications";
+			this.balloonCheck.UseVisualStyleBackColor = true;
+			this.balloonCheck.CheckedChanged += new System.EventHandler(this.balloonCheck_CheckedChanged);
+			// 
 			// Options
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 111);
+			this.ClientSize = new System.Drawing.Size(284, 134);
+			this.Controls.Add(this.balloonCheck);
 			this.Controls.Add(this.cycleNoteButton);
 			this.Controls.Add(this.muteNoteButton);
 			this.Controls.Add(this.bootCheck);
@@ -112,5 +125,6 @@
 		private System.Windows.Forms.CheckBox bootCheck;
 		private System.Windows.Forms.Button muteNoteButton;
 		private System.Windows.Forms.Button cycleNoteButton;
+		private System.Windows.Forms.CheckBox balloonCheck;
     }
 }

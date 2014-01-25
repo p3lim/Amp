@@ -51,6 +51,7 @@ namespace Amp
 			RegistryKey key = Registry.CurrentUser;
 			RegistryKey group = key.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
 			bootCheck.Checked = group.GetValue("Amp") != null;
+			balloonCheck.Checked = Properties.Settings.Default.TrayNotifications;
 			_frozen = false;
 
 			UpdateDetails();
@@ -81,6 +82,14 @@ namespace Amp
 					group.SetValue("Amp", Application.ExecutablePath, RegistryValueKind.String);
 				else if (group.GetValue("Amp") != null)
 					group.DeleteValue("Amp");
+			}
+		}
+
+		private void balloonCheck_CheckedChanged(object sender, EventArgs e)
+		{
+			if (!_frozen)
+			{
+				Properties.Settings.Default.TrayNotifications = balloonCheck.Checked;
 			}
 		}
 

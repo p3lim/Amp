@@ -6,7 +6,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7D907781-4D51-42D3-AF7E-DD52C31B8566}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Amp</RootNamespace>
     <AssemblyName>Amp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -35,15 +34,67 @@
     <ApplicationIcon>Resources\Enabled.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MouseKeyboardActivityMonitor">
+      <HintPath>lib\MouseKeyboardActivityMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hook.cs" />
+    <Compile Include="App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Forms\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enabled.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disabled.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Switch.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoteEnabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoteDisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="CoreAudioAPI\AudioEndpointVolume.cs" />
     <Compile Include="CoreAudioAPI\AudioEndpointVolumeCallback.cs" />
     <Compile Include="CoreAudioAPI\AudioEndpointVolumeChannel.cs" />
@@ -92,63 +143,15 @@
     <Compile Include="CoreAudioAPI\PropVariant.cs" />
     <Compile Include="CoreAudioAPI\SessionCollection.cs" />
     <Compile Include="CoreAudioAPI\SimpleAudioVolume.cs" />
-    <Compile Include="Devices.cs" />
-    <Compile Include="Forms\Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Register.Designer.cs">
-      <DependentUpon>Register.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Options.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Options.Designer.cs">
-      <DependentUpon>Options.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Register.resx">
-      <DependentUpon>Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Options.resx">
-      <DependentUpon>Options.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="lib\MouseKeyboardActivityMonitor.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Enabled.ico" />
+    <None Include="lib\MouseKeyboardActivityMonitor.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Disabled.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\switch.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Note.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoteDisabled.png" />
+    <None Include="lib\MouseKeyboardActivityMonitor.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

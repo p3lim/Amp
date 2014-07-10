@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -11,7 +10,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Amp")]
-[assembly: AssemblyCopyright("Copyright (c) 2013, Adrian L Lange")]
+[assembly: AssemblyCopyright("Copyright © 2014, Adrian L Lange")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,4 +34,3 @@ using System.Resources;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.3.0")]
 [assembly: AssemblyFileVersion("0.3.0")]
-[assembly: NeutralResourcesLanguageAttribute("en")]

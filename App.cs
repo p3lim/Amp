@@ -229,44 +229,34 @@ namespace Amp
 			return Convert.ToString(Registry.GetValue(runPath, "Amp", "")).Length != 0;
 		}
 
-		public static bool SetKey(String type, int key)
+		public static void SetKey(String type, int key)
 		{
 			Registry.SetValue(appPath, type + "Key", key, RegistryValueKind.DWord);
-			return true;
 		}
 
-		public static bool SetModifiers(String type, int modifiers)
+		public static void SetModifiers(String type, int modifiers)
 		{
 			Registry.SetValue(appPath, type + "Modifiers", modifiers, RegistryValueKind.DWord);
-			return true;
 		}
 
-		public static bool SetModifierString(String type, String modifierString)
+		public static void SetModifierString(String type, String modifierString)
 		{
 			Registry.SetValue(appPath, type + "ModifierString", modifierString, RegistryValueKind.String);
-			return true;
 		}
 
-		public static bool SetShouldPlaySound(String type, bool enabled)
+		public static void SetShouldPlaySound(String type, bool enabled)
 		{
 			Registry.SetValue(appPath, type + "Sound", enabled, RegistryValueKind.DWord);
-			return true;
 		}
 
-		public static bool SetShouldShowBalloon(bool enabled)
+		public static void SetShouldShowBalloon(bool enabled)
 		{
 			Registry.SetValue(appPath, "showBalloon", enabled, RegistryValueKind.DWord);
-			return true;
 		}
 
-		public static bool SetShouldAutoRun(bool enabled)
+		public static void SetShouldAutoRun(bool enabled)
 		{
-			if (enabled)
-				Registry.SetValue(runPath, "Amp", Application.ExecutablePath, RegistryValueKind.String);
-			else
-				Registry.SetValue(runPath, "Amp", "", RegistryValueKind.String);
-
-			return true;
+			Registry.SetValue(runPath, "Amp", enabled ? Application.ExecutablePath : "", RegistryValueKind.String);
 		}
 	}
 }

@@ -63,7 +63,7 @@ namespace Amp
 			trayIcon.DoubleClick += trayIcon_DoubleClick;
 			trayIcon.Visible = true;
 
-			trayIcon_UpdateIcon(Devices.IsMuted());
+			trayIcon_UpdateIcon(Devices.HasMicrophone() ? Devices.IsMuted() : false);
 		}
 
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
@@ -126,6 +126,12 @@ namespace Amp
 
 		private void trayIcon_DoubleClick(object sender, EventArgs e)
 		{
+			if (!Devices.HasMicrophone())
+			{
+				trayIcon_UpdateIcon(true);
+				return;
+			}
+
 			bool muted = Devices.MuteMicrophone();
 			trayIcon_UpdateIcon(muted);
 
@@ -213,6 +219,11 @@ namespace Amp
 			lastIndex = nextIndex;
 
 			return nextDevice.FriendlyName;
+		}
+
+		public static bool HasMicrophone()
+		{
+			return devicesEnum.EnumerateAudioEndPoints(EDataFlow.eCapture, EDeviceState.DEVICE_STATE_ACTIVE).Count > 0;
 		}
 
 		public static bool MuteMicrophone()

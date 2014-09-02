@@ -178,21 +178,36 @@ namespace Amp
 		private static readonly MMDeviceEnumerator devicesEnum = new MMDeviceEnumerator();
 		private static readonly PolicyConfigClient policyConfig = new PolicyConfigClient();
 
+		private static int lastIndex;
+		private static bool findLastIndex = true;
+
 		public static string CycleDevices()
 		{
 			MMDeviceCollection devices = devicesEnum.EnumerateAudioEndPoints(EDataFlow.eRender, EDeviceState.DEVICE_STATE_ACTIVE);
-			for (int index = 0; index < devices.Count; index++)
+
+			int numDevices = devices.Count;
+			if (findLastIndex)
 			{
-				MMDevice device = devices[index];
-				if (device.ID != devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).ID)
+				for (int index = 0; index < numDevices; index++)
 				{
-					policyConfig.SetDefaultEndpoint(device.ID, ERole.eMultimedia);
-					policyConfig.SetDefaultEndpoint(device.ID, ERole.eCommunications);
-					break;
+					MMDevice device = devices[index];
+					if (device.ID == devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).ID)
+					{
+						lastIndex = index;
+						break;
+					}
 				}
+
+				findLastIndex = false;
 			}
 
-			return devicesEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia).FriendlyName;
+			int nextIndex = (lastIndex == (numDevices - 1)) ? 0 : lastIndex + 1;
+			MMDevice nextDevice = devices[nextIndex];
+			policyConfig.SetDefaultEndpoint(nextDevice.ID, ERole.eMultimedia);
+			policyConfig.SetDefaultEndpoint(nextDevice.ID, ERole.eCommunications);
+			lastIndex = nextIndex;
+
+			return nextDevice.FriendlyName;
 		}
 
 		public static bool MuteMicrophone()

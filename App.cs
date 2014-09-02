@@ -22,6 +22,7 @@ namespace Amp
 
 		private NotifyIcon trayIcon;
 		private ContextMenu trayMenu;
+		private bool clicked;
 
 		public App()
 		{
@@ -46,6 +47,7 @@ namespace Amp
 			keyboardHook = new KeyboardHookListener(new GlobalHooker());
 			keyboardHook.Enabled = true;
 			keyboardHook.KeyDown += keyboardHook_KeyDown;
+			keyboardHook.KeyUp += keyboardHook_KeyUp;
 
 			trayMenu = new ContextMenu();
 			trayMenu.MenuItems.Add("Mixer", (sender, e) => System.Diagnostics.Process.Start("sndvol.exe"));
@@ -67,6 +69,9 @@ namespace Amp
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (Register.active)
+				return;
+
+			if (clicked == true)
 				return;
 
 			int modifiers = 0;
@@ -98,6 +103,15 @@ namespace Amp
 				e.SuppressKeyPress = true;
 				trayIcon_DoubleClick(sender, e);
 			}
+
+			if(e.SuppressKeyPress)
+				clicked = true;
+		}
+
+		void keyboardHook_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (clicked == true)
+				clicked = false;
 		}
 
 		private void trayIcon_UpdateIcon(bool muted)

@@ -90,6 +90,8 @@ namespace Amp
 				e.SuppressKeyPress = true;
 
 				String device = Devices.CycleDevices();
+				if (device == null)
+					return;
 
 				if (Settings.ShouldShowBalloon())
 					trayIcon.ShowBalloonTip(500, "Amp", "Audio output changed to " + device, ToolTipIcon.Info);
@@ -186,6 +188,9 @@ namespace Amp
 			MMDeviceCollection devices = devicesEnum.EnumerateAudioEndPoints(EDataFlow.eRender, EDeviceState.DEVICE_STATE_ACTIVE);
 
 			int numDevices = devices.Count;
+			if (numDevices == 1)
+				return null;
+
 			if (findLastIndex)
 			{
 				for (int index = 0; index < numDevices; index++)

@@ -194,7 +194,7 @@ namespace Amp
 			MMDeviceCollection devices = devicesEnum.EnumerateAudioEndPoints(EDataFlow.eRender, EDeviceState.DEVICE_STATE_ACTIVE);
 
 			int numDevices = devices.Count;
-			if (numDevices == 1)
+			if (numDevices < 2)
 				return null;
 
 			if (findLastIndex)

@@ -72,7 +72,10 @@ namespace Amp
 				return;
 
 			if (clicked == true)
+			{
+				e.SuppressKeyPress = true;
 				return;
+			}
 
 			int modifiers = 0;
 

@@ -63,9 +63,9 @@ namespace Amp {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Disabled {
+        internal static System.Drawing.Icon microphone {
             get {
-                object obj = ResourceManager.GetObject("Disabled", resourceCulture);
+                object obj = ResourceManager.GetObject("microphone", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Amp {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Enabled {
+        internal static System.Drawing.Icon microphone_red {
             get {
-                object obj = ResourceManager.GetObject("Enabled", resourceCulture);
+                object obj = ResourceManager.GetObject("microphone_red", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

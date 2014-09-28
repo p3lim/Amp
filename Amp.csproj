@@ -159,6 +159,12 @@
   <ItemGroup>
     <None Include="Resources\Icons\note\note_gray.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\microphone\microphone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\microphone\microphone_red.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

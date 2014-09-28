@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Disabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="microphone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\microphone\microphone.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Enabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="microphone_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Icons\microphone\microphone_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MouseKeyboardActivityMonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>lib\MouseKeyboardActivityMonitor.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

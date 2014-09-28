@@ -49,4 +49,6 @@ Legal
 
 See the [LICENSE](https://github.com/p3lim/Amp/blob/master/LICENSE) file.
 
+The [microphone icon](https://github.com/p3lim/Amp/tree/master/Resources/Icons/microphone) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) by [Dave Gandy](http://www.flaticon.com/authors/dave-gandy) from [www.flaticon.com](http://www.flaticon.com/).
+
 The [note icon](https://github.com/p3lim/Amp/tree/master/Resources/Icons/note) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) by [Yannick](http://yanlu.de) from [www.flaticon.com](http://www.flaticon.com/).

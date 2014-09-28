@@ -122,9 +122,9 @@ namespace Amp
 		private void trayIcon_UpdateIcon(bool muted)
 		{
 			if (muted)
-				trayIcon.Icon = Resources.Disabled;
+				trayIcon.Icon = Resources.microphone;
 			else
-				trayIcon.Icon = Resources.Enabled;
+				trayIcon.Icon = Resources.microphone_red;
 		}
 
 		private void trayIcon_DoubleClick(object sender, EventArgs e)

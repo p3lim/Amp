@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Enabled.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\microphone\microphone_red.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MouseKeyboardActivityMonitor">
@@ -80,19 +80,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Enabled.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Disabled.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Switch.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoteEnabled.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NoteDisabled.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreAudioAPI\AudioEndpointVolume.cs" />

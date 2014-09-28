@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
 			this.cycleButton = new System.Windows.Forms.Button();
 			this.cycleNoteButton = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
 			// 
 			// cycleNoteButton
 			// 
+			this.cycleNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.cycleNoteButton.Location = new System.Drawing.Point(240, 12);
 			this.cycleNoteButton.Name = "cycleNoteButton";
 			this.cycleNoteButton.Size = new System.Drawing.Size(32, 32);
@@ -69,6 +69,7 @@
 			// 
 			// muteNoteButton
 			// 
+			this.muteNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.muteNoteButton.Location = new System.Drawing.Point(240, 50);
 			this.muteNoteButton.Name = "muteNoteButton";
 			this.muteNoteButton.Size = new System.Drawing.Size(32, 32);

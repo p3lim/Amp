@@ -48,3 +48,5 @@ Legal
 ======
 
 See the [LICENSE](https://github.com/p3lim/Amp/blob/master/LICENSE) file.
+
+The [note icon](https://github.com/p3lim/Amp/tree/master/Resources/Icons/note) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) by [Yannick](http://yanlu.de) from [www.flaticon.com](http://www.flaticon.com/).

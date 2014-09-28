@@ -34,14 +34,14 @@ namespace Amp
 				muteButton.Text = "Mute Hotkey: None";
 
 			if (Settings.ShouldPlaySound("cycle"))
-				cycleNoteButton.BackgroundImage = Resources.NoteEnabled;
+				cycleNoteButton.BackgroundImage = Resources.note;
 			else
-				cycleNoteButton.BackgroundImage = Resources.NoteDisabled;
+				cycleNoteButton.BackgroundImage = Resources.note_gray;
 
 			if (Settings.ShouldPlaySound("mute"))
-				muteNoteButton.BackgroundImage = Resources.NoteEnabled;
+				muteNoteButton.BackgroundImage = Resources.note;
 			else
-				muteNoteButton.BackgroundImage = Resources.NoteDisabled;
+				muteNoteButton.BackgroundImage = Resources.note_gray;
 		}
 
 		private void Options_Shown(object sender, System.EventArgs e)

@@ -18,6 +18,12 @@ Features
 * Double-clicking the tray icon toggles microphone muting
 
 
+Downloads
+======
+
+See [releases](https://github.com/p3lim/Amp/releases) for the latest stable version.
+
+
 How to use
 ======
 

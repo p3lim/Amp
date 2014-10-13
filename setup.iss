@@ -3,8 +3,8 @@
 
 [Setup]
 AppName=Amp
-AppVersion=0.6.0
-AppVerName=Amp 0.6.0
+AppVersion=1.0.0
+AppVerName=Amp 1.0.0
 AppPublisher=Adrian L Lange
 AppPublisherURL=https://github.com/p3lim/Amp#readme
 DefaultDirName={pf}\Amp
@@ -12,7 +12,7 @@ DefaultGroupName=Amp
 AllowNoIcons=yes
 LicenseFile=D:\Code\repos\Amp\LICENSE
 OutputDir=D:\Code\repos\Amp\bin\Release
-OutputBaseFilename=Amp-0.6.0
+OutputBaseFilename=Amp-1.0.0
 Compression=lzma
 SolidCompression=yes
 

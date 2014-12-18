@@ -64,7 +64,7 @@ namespace Amp
 					modifierString += "Alt+";
 				}
 
-				label.Text = String.Format("Use \"{0}\" as the new {1} keybinding?", modifierString + e.KeyCode, e.KeyValue);
+				label.Text = String.Format("Use \"{0}\" as the new {1} keybinding?", modifierString + e.KeyCode, type);
 				key = e.KeyCode;
 
 				acceptButton.Show();
